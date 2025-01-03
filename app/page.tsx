@@ -18,8 +18,8 @@ interface Video {
 export default function Home() {
   const [unprocessedVideos, setUnprocessedVideos] = useState<Video[]>([]);
   const [currentVideo, setCurrentVideo] = useState<Video | null>(null);
-  const [selectedResolution, setSelectedResolution] = useState<string>("");
-  const [selectedBitrate, setSelectedBitrate] = useState<string>("");
+  const [selectedResolution, setSelectedResolution] = useState<string>("Original");
+  const [selectedBitrate, setSelectedBitrate] = useState<string>("Original");
   const [loading, setLoading] = useState(true);
 
   const resolutions = [
@@ -80,8 +80,8 @@ export default function Home() {
 
       setUnprocessedVideos(nextVideos);
       setCurrentVideo(nextVideos[0] || null);
-      setSelectedResolution("");
-      setSelectedBitrate("");
+      setSelectedResolution("Original");
+      setSelectedBitrate("Original");
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error("Error processing video:", error);
