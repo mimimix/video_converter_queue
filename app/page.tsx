@@ -18,7 +18,8 @@ interface Video {
 export default function Home() {
   const [unprocessedVideos, setUnprocessedVideos] = useState<Video[]>([]);
   const [currentVideo, setCurrentVideo] = useState<Video | null>(null);
-  const [selectedResolution, setSelectedResolution] = useState<string>("Original");
+  const [selectedResolution, setSelectedResolution] =
+    useState<string>("Original");
   const [selectedBitrate, setSelectedBitrate] = useState<string>("Original");
   const [loading, setLoading] = useState(true);
 
@@ -152,6 +153,7 @@ export default function Home() {
                 aria-label="Dynamic tabs"
                 color={"primary"}
                 items={resolutions}
+                selectedKey={selectedResolution}
                 onSelectionChange={(e) => {
                   setSelectedResolution(String(e));
                 }}
@@ -165,6 +167,7 @@ export default function Home() {
                 aria-label="Dynamic tabs"
                 color={"primary"}
                 items={bitrates}
+                selectedKey={selectedBitrate}
                 onSelectionChange={(e) => {
                   setSelectedBitrate(String(e));
                 }}
